@@ -42,7 +42,7 @@
 # 200. Создайте список кортежей, первый элемент которого - индекс 
 # элемента, а второй - сам элемент, при условии, что они не совпадают.
 # [1,1,1,1] -> [(0,1),(1,1),(2,1),(3,1)] -> [(0,1),(2,1),(3,1)]
-import random 
+# import random 
 
 # randomlist = [1,1,1,1]
 # result = [(i, k) for i, k in enumerate(randomlist) if i!=k]
@@ -61,6 +61,18 @@ import random
 # Пример
 # [(10,25),(3,4),(4,1)] => [(10,25),(4,1)]
 
-randomlist = [random.randint(1,100) for i in range(200)]
-tuple_sum = list(filter(lambda x:(x[0]+x[1])%5==0,enumerate(randomlist)))
-print(f'Список пар, где сумма кортежа кратна => {tuple_sum}')
+# randomlist = [random.randint(1,100) for i in range(200)]
+# tuple_sum = list(filter(lambda x:(x[0]+x[1])%5==0,enumerate(randomlist)))
+# print(f'Список пар, где сумма кортежа кратна => {tuple_sum}')
+
+# 4 - Дан список URL различных сайтов. Нужно составить список
+#  доменных имен сайтов
+
+url_list = ["https://www.novakid.ru/education/schoolchildren/",
+"https://www.libreoffice.org/about-us/who-are-we/", 
+"https://www.mos.ru/pgu/ru/services/procedure/0/0/7700000010000187206/"]
+ 
+domen_list = list(map(lambda i: i[:i.find('/')], 
+[i for i in map(lambda i:i.replace('https://',''),url_list)]))
+print(domen_list)
+
